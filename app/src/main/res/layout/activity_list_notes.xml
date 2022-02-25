@@ -7,35 +7,41 @@
         android:layout_height="match_parent"
         tools:context=".ListNotesActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true" app:srcCompat="@android:drawable/ic_input_add"
+            android:id="@+id/newNoteButton"
+            android:onClick="openNewNote"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"/>
+    <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/notes_search_view"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+    </SearchView>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/notes_search_view"
+            app:layout_constraintBottom_toTopOf="@+id/newNoteButton">
 
         <TextView android:layout_width="match_parent"
-                  android:layout_height="0dp"
+                  android:layout_height="match_parent"
                   android:id="@+id/no_notes_message"
                   android:gravity="center"
                   android:visibility="gone"
-                  android:text="No notes found." app:layout_constraintBottom_toBottomOf="parent"
-                  app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="256dp"
-                  android:layout_marginBottom="616dp"/>
+                  android:text="No notes found."
+        />
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/recycler_view"
                 android:background="@android:color/transparent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintBottom_toTopOf="@+id/newNoteButton" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="1.0">
         </androidx.recyclerview.widget.RecyclerView>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true" app:srcCompat="@android:drawable/ic_input_add"
-                android:id="@+id/newNoteButton"
-                android:onClick="openNewNote"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="24dp" android:layout_marginBottom="16dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
